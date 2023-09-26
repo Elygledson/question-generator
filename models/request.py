@@ -1,5 +1,4 @@
-from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
 
 
@@ -10,9 +9,11 @@ class QuestionType(str, Enum):
 
 
 class Request(BaseModel):
-    type: QuestionType
-    text: str
-    question_num: Optional[int] = 5
+    type: QuestionType = Field(description='Tipo de questão a ser gerada')
+    text: str = Field(
+        description='Texto a ser usado para geração das questões')
+    question_num: int = Field(
+        default=3, description="Quantidade de questões a serem geradas")
 
 
 class Question(BaseModel):
@@ -27,3 +28,6 @@ class Questions(BaseModel):
 
 class Transcription(BaseModel):
     url: str
+    type: QuestionType = Field(description='Tipo de questão a ser gerada')
+    question_num: int = Field(
+        default=3, description="Quantidade de questões a serem geradas")

@@ -5,7 +5,6 @@ from urllib.parse import urlparse, parse_qs
 
 
 class SpeechToText:
-
     @staticmethod
     def get_id(url):
         u_pars = urlparse(url)
@@ -26,5 +25,5 @@ class SpeechToText:
             for s in transcription:
                 text += ' ' + s['text']
             return text
-        except ValueError as v:
-            return f'Error to try getting video\'s transcription {v}'
+        except:
+            return f'Error ao tentar obter transcrição do vídeo'

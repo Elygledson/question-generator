@@ -3,13 +3,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routes.question import question_generator
-from routes.transcription import transcription_generator
 
 
 app = FastAPI()
 
 app.include_router(question_generator, prefix='/api')
-app.include_router(transcription_generator, prefix='/api')
 
 
 app.add_middleware(
