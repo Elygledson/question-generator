@@ -12,7 +12,7 @@ class Request(BaseModel):
     type: QuestionType = Field(description='Tipo de questão a ser gerada')
     text: str = Field(
         description='Texto a ser usado para geração das questões')
-    question_num: int = Field(
+    num: int = Field(
         default=3, description="Quantidade de questões a serem geradas")
 
 

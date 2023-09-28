@@ -35,5 +35,4 @@ class MultipleChoiceQuestion:
         user_query_output = self.llm(user_query.to_messages())
         json_string = re.search(r'```json\n(.*?)```',
                                 user_query_output.content, re.DOTALL).group(1)
-        print(json_string)
         return json.loads(f'[{json_string}]')
